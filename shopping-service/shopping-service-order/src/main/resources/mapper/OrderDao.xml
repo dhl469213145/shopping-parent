@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shopping.order.mapper.OrderDao">
+
+    <resultMap type="com.shopping.order.pojo.entity.OrderEntity" id="orderMap">
+        <result property="id" column="id"/>
+        <result property="totalNum" column="total_num"/>
+        <result property="totalMoney" column="total_money"/>
+        <result property="preMoney" column="pre_money"/>
+        <result property="postFee" column="post_fee"/>
+        <result property="payMoney" column="pay_money"/>
+        <result property="payType" column="pay_type"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="payTime" column="pay_time"/>
+        <result property="consignTime" column="consign_time"/>
+        <result property="endTime" column="end_time"/>
+        <result property="closeTime" column="close_time"/>
+        <result property="shippingName" column="shipping_name"/>
+        <result property="shippingCode" column="shipping_code"/>
+        <result property="username" column="username"/>
+        <result property="buyerMessage" column="buyer_message"/>
+        <result property="buyerRate" column="buyer_rate"/>
+        <result property="receiverContact" column="receiver_contact"/>
+        <result property="receiverMobile" column="receiver_mobile"/>
+        <result property="receiverAddress" column="receiver_address"/>
+        <result property="sourceType" column="source_type"/>
+        <result property="transactionId" column="transaction_id"/>
+        <result property="orderStatus" column="order_status"/>
+        <result property="payStatus" column="pay_status"/>
+        <result property="consignStatus" column="consign_status"/>
+        <result property="isDelete" column="is_delete"/>
+    </resultMap>
+
+</mapper>

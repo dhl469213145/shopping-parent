@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shopping.goods.mapper.PrefDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.shopping.goods.pojo.entity.PrefEntity" id="prefMap">
+        <result property="id" column="id"/>
+        <result property="cateId" column="cate_id"/>
+        <result property="buyMoney" column="buy_money"/>
+        <result property="preMoney" column="pre_money"/>
+        <result property="startTime" column="start_time"/>
+        <result property="endTime" column="end_time"/>
+        <result property="type" column="type"/>
+        <result property="state" column="state"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="shopping-authorize" />
+        <module name="shopping-common-db" />
+        <module name="shopping-eureka" />
+        <module name="shopping-gateway-business" />
+        <module name="shopping-gateway-user" />
+        <module name="shopping-service-goods" />
+        <module name="shopping-service-goods-api" />
+        <module name="shopping-service-order" />
+        <module name="shopping-service-order-api" />
+        <module name="shopping-service-user" />
+        <module name="shopping-service-user-api" />
+        <module name="showpping-gateway-master" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="shopping-authorize" target="1.8" />
+      <module name="shopping-common" target="1.8" />
+      <module name="shopping-common-db" target="1.8" />
+      <module name="shopping-eureka" target="1.8" />
+      <module name="shopping-gateway" target="1.8" />
+      <module name="shopping-gateway-business" target="1.8" />
+      <module name="shopping-gateway-user" target="1.8" />
+      <module name="shopping-parent" target="1.8" />
+      <module name="shopping-service" target="1.8" />
+      <module name="shopping-service-api" target="1.8" />
+      <module name="shopping-service-goods" target="1.8" />
+      <module name="shopping-service-goods-api" target="1.8" />
+      <module name="shopping-service-order" target="1.8" />
+      <module name="shopping-service-order-api" target="1.8" />
+      <module name="shopping-service-user" target="1.8" />
+      <module name="shopping-service-user-api" target="1.8" />
+      <module name="showpping-gateway-master" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

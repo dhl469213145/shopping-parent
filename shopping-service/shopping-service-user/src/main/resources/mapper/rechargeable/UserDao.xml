@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shopping.user.dao.UserDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="pojo.entity.UserEntity" id="userMap">
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+        <result property="created" column="created"/>
+        <result property="updated" column="updated"/>
+        <result property="sourceType" column="source_type"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="name" column="name"/>
+        <result property="status" column="status"/>
+        <result property="headPic" column="head_pic"/>
+        <result property="qq" column="qq"/>
+        <result property="isMobileCheck" column="is_mobile_check"/>
+        <result property="isEmailCheck" column="is_email_check"/>
+        <result property="sex" column="sex"/>
+        <result property="userLevel" column="user_level"/>
+        <result property="points" column="points"/>
+        <result property="experienceValue" column="experience_value"/>
+        <result property="birthday" column="birthday"/>
+        <result property="lastLoginTime" column="last_login_time"/>
+    </resultMap>
+
+
+</mapper>

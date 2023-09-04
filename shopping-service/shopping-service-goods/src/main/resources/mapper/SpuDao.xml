@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shopping.goods.mapper.SpuDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.shopping.goods.pojo.entity.SpuEntity" id="spuMap">
+        <result property="id" column="id"/>
+        <result property="sn" column="sn"/>
+        <result property="name" column="name"/>
+        <result property="caption" column="caption"/>
+        <result property="brandId" column="brand_id"/>
+        <result property="category1Id" column="category1_id"/>
+        <result property="category2Id" column="category2_id"/>
+        <result property="category3Id" column="category3_id"/>
+        <result property="templateId" column="template_id"/>
+        <result property="freightId" column="freight_id"/>
+        <result property="image" column="image"/>
+        <result property="images" column="images"/>
+        <result property="saleService" column="sale_service"/>
+        <result property="introduction" column="introduction"/>
+        <result property="specItems" column="spec_items"/>
+        <result property="paraItems" column="para_items"/>
+        <result property="saleNum" column="sale_num"/>
+        <result property="commentNum" column="comment_num"/>
+        <result property="isMarketable" column="is_marketable"/>
+        <result property="isEnableSpec" column="is_enable_spec"/>
+        <result property="isDelete" column="is_delete"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+
+</mapper>

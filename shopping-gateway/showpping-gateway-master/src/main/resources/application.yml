@@ -1,0 +1,69 @@
+server:
+  port: 18001
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka
+  instance:
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: gateway-master
+  cloud:
+    gateway:
+      #[跨域]
+      globalcors:
+        cors-configurations:
+          '[/**]': #响应所有请求
+            allowedOrigins: "*"   #跨域处理 允许所有的域
+            allowedMethod: #支持的方法
+              -PUT
+              -DELETE
+              -POST
+              -GET
+      #[路由]
+      routes:
+        #[路由-唯一标识]
+        - id: shopping_route_master_to_user
+          #[路由-映射地址]
+          #          uri: http://127.0.0.1:18010
+          uri: lb://gateway-user
+          #[路由-规则配置]
+          predicates:
+            #用户请求的域名规则，所有以 shopping.com的请求都会路由到  googd服务
+            #            - Host= shopping.com
+            #所有以 /brand 开头的请求都会路由到  googd服务
+            - Path= /shopping-gateway-user/**
+          filters:
+            #忽略请求中的上个节点。  eg.  /shopping/findOne  ->  /findOne
+            - StripPrefix=1
+            #在请求url上加上前缀   eg.   /findOne   ->   /brand/findOne
+            #            - PrefixPath= /brand
+
+            - name: RequestRateLimiter  #请求数限流 名字不能随便写 ，使用默认的facatory
+              args:
+                #过滤对应处理类的id
+                key-resolver: "#{@ipKeyResolver}"
+                #限制处理的请求
+                redis-rate-limiter.replenishRate: 1
+                #并发能处理的请求
+                redis-rate-limiter.burstCapacity: 4
+
+        - id: shopping_route_master_to_business
+          uri: lb://gateway-business
+          predicates:
+            - Path= /shopping-gateway-business/**
+          filters:
+            - StripPrefix=1
+            - name: RequestRateLimiter  #请求数限流 名字不能随便写 ，使用默认的facatory
+              args:
+                key-resolver: "#{@ipKeyResolver}"
+                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.burstCapacity: 4
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+

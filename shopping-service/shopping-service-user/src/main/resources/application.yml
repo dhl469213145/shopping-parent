@@ -1,0 +1,74 @@
+server:
+  port: 18011
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka
+  instance:
+    prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
+
+spring:
+  application:
+    name: user
+
+  datasource:
+    url: jdbc:mysql://192.168.2.4:3306/changgou_user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 123456
+
+  redis:
+    host: 192.168.2.4
+    port: 6379
+    password: # Redis服务器地址
+    timeout: 5000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+  session:
+    store-type: redis
+
+# mybatis
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: pojo.entity
+  #typeEnumsPackage: org.springblade.dashboard.entity.enums
+  global-config:
+    #刷新mapper 调试神器
+    #    refresh: ${blade.dev-mode}
+    # 关闭MP3.0自带的banner
+    banner: false
+    db-config:
+      #主键类型  "AUTO":数据库ID自增; "NONE":无状态,该类型为未设置主键类型(注解里等于跟随全局,全局里约等于 INPUT); "INPUT":insert前自行set主键值;
+      #             "ASSIGN_ID":分配ID(主键类型为Number(Long和Integer)或String)(since 3.3.0),使用接口IdentifierGenerator的方法nextId(默认实现类为DefaultIdentifierGenerator雪花算法);
+      #           "ASSIGN_UUID":分配UUID,主键类型为String(since 3.3.0),使用接口IdentifierGenerator的方法nextUUID(默认default方法);
+      id-type: AUTO
+      #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+      field-strategy: 2
+      #驼峰下划线转换
+      column-underline: true
+      # 逻辑删除配置
+      # 逻辑删除全局值（1表示已删除，Mybatis Plus的默认配置）
+      logic-delete-value: 1
+      # 逻辑未删除全局值（0表示未删除，Mybatis Plus的默认配置）
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+    jdbc-type-for-null: 'null'
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#jwt config
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: mall-member-secret #JWT加解密使用的密钥
+  expiration: 604800000 #JWT的超期限时间(60*60*24)
+  tokenHead: Bearer #JWT负载中拿到开头
