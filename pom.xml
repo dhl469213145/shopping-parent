@@ -16,6 +16,7 @@
         <module>shopping-common-db</module>
         <module>shopping-service-api</module>
         <module>shopping-authorize</module>
+        <module>test</module>
         <!--        <module>shopping-auth2</module>-->
     </modules>
 
